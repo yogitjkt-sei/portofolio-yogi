@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio Programmer</title>
+  <style>
+    /* RESET */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f9f9f9;
+      color: #333;
+      transition: background 0.3s, color 0.3s;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    /* Navbar */
+    header {
+      position: fixed;
+      width: 100%;
+      background: #fff;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 50px;
+    }
+    .logo { font-weight: bold; font-size: 20px; color: #4CAF50; }
+    .nav-links { list-style: none; display: flex; gap: 20px; }
+    .nav-links a:hover { color: #4CAF50; }
+    #darkModeToggle { cursor: pointer; border: none; background: none; font-size: 20px; }
+
+    /* Hero */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg,#4CAF50,#2c3e50);
+      color: #fff;
+      text-align: center;
+    }
+    .hero h2 { font-size: 40px; }
+    .hero h3 { margin: 10px 0; font-size: 24px; min-height: 30px; }
+    .highlight { color: yellow; }
+    .btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: yellow;
+      color: #000;
+      border-radius: 20px;
+      transition: 0.3s;
+    }
+    .btn:hover { background: orange; }
+
+    /* Sections */
+    section {
+      padding: 100px 50px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    h2 { text-align: center; margin-bottom: 40px; font-size: 32px; }
+
+    /* Skills */
+    .skill { margin-bottom: 15px; }
+    .progress {
+      background: #ddd;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+    .progress div {
+      height: 10px;
+      background: #4CAF50;
+      animation: grow 2s ease;
+    }
+    @keyframes grow { from { width: 0; } }
+
+    /* Projects */
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+      gap: 20px;
+    }
+    .card {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .card:hover { transform: translateY(-5px); }
+
+    /* Contact */
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      max-width: 500px;
+      margin: auto;
+    }
+    input, textarea {
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+    button {
+      padding: 10px;
+      border: none;
+      background: #4CAF50;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover { background: #388E3C; }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #222;
+      color: #fff;
+    }
+
+    /* Dark Mode */
+    body.dark {
+      background: #121212;
+      color: #eee;
+    }
+    body.dark header { background: #1e1e1e; }
+    body.dark .card { background: #1e1e1e; color: #eee; }
+    body.dark .progress { background: #444; }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <header>
+    <nav>
+      <h1 class="logo">&lt;/&gt; MyPortfolio</h1>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button id="darkModeToggle">🌙</button>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <h2>Hello, I'm <span class="highlight">Yogi</span></h2>
+    <h3 class="typing-text"></h3>
+    <a href="#projects" class="btn">View My Work</a>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about">
+    <h2>About Me</h2>
+    <p>
+      I’m a passionate programmer who loves building modern web apps and solving problems with code. 
+      Always learning and exploring new technologies 🚀
+    </p>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="skills">
+    <h2>Skills</h2>
+    <div class="skill">
+      <p>HTML</p>
+      <div class="progress"><div style="width:90%"></div></div>
+    </div>
+    <div class="skill">
+      <p>CSS</p>
+      <div class="progress"><div style="width:80%"></div></div>
+    </div>
+    <div class="skill">
+      <p>JavaScript</p>
+      <div class="progress"><div style="width:75%"></div></div>
+    </div>
+    <div class="skill">
+      <p>React</p>
+      <div class="progress"><div style="width:70%"></div></div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="projects">
+    <h2>Projects</h2>
+    <div class="project-grid">
+      <div class="card">
+        <h3>Portfolio Website</h3>
+        <p>A personal portfolio built with HTML, CSS, and JS.</p>
+      </div>
+      <div class="card">
+        <h3>Mini Game</h3>
+        <p>A simple browser-based game built with JavaScript.</p>
+      </div>
+      <div class="card">
+        <h3>Web App</h3>
+        <p>Full-stack web app with authentication and API.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <h2>Contact Me</h2>
+    <form>
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea placeholder="Your Message" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>© 2025 MyPortfolio. Built with ❤️ by Yogi</p>
+  </footer>
+
+  <script>
+    // Dark Mode
+    const toggleBtn = document.getElementById("darkModeToggle");
+    toggleBtn.addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+      toggleBtn.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
+    });
+
+    // Typing Effect
+    const typingText = document.querySelector(".typing-text");
+    const textArray = ["Web Developer", "Frontend Enthusiast", "Problem Solver"];
+    let textIndex = 0;
+    let charIndex = 0;
+
+    function type() {
+      if (charIndex < textArray[textIndex].length) {
+        typingText.textContent += textArray[textIndex].charAt(charIndex);
+        charIndex++;
+        setTimeout(type, 100);
+      } else {
+        setTimeout(erase, 2000);
+      }
+    }
+
+    function erase() {
+      if (charIndex > 0) {
+        typingText.textContent = textArray[textIndex].substring(0, charIndex - 1);
+        charIndex--;
+        setTimeout(erase, 50);
+      } else {
+        textIndex = (textIndex + 1) % textArray.length;
+        setTimeout(type, 500);
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      if (textArray.length) setTimeout(type, 500);
+    });
+  </script>
+</body>
+</html>
